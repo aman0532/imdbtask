@@ -1,0 +1,38 @@
+<ul>
+  <li *ngFor="let movie of movies.items | paginate:{itemsPerPage:tableSize,currentPage:page,totalItems:count}; let i=index">
+      <a href="https://www.imdb.com/title/{{movie.id}}">
+      
+          <img src="{{movie.image}}" style="max-width:100%;height:70%;" alt="Card image cap">
+          <div class="content">
+              
+              <div class="name">
+               FulTitil : {{movie.fullTitle}}
+             </div>
+          
+             <div class="name">
+               Rank: {{movie.rank}}
+             </div>
+             
+             
+              
+              <div class="price">
+                  <span>
+                     Rating : {{movie.imDbRatingCount}}
+                  </span>
+              </div>
+             
+          </div>
+          
+      </a>
+     
+  </li>
+  <div>
+    <pagination-controls
+      previousLabel="prev"
+       nextLabel="Next"
+      (pageChange)="tabledatachange($event)"
+      >
+    </pagination-controls>
+    </div>
+ 
+</ul>
